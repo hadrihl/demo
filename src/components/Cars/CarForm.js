@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import APIService from "../../services/APIService";
 
 const CarForm = () => {
     const [make, setMake] = useState('');
@@ -20,7 +20,7 @@ const CarForm = () => {
         }
 
         try {
-            const response = axios.post('http://localhost:8080/api/cars', newCar);
+            const response = APIService.post("/api/cars", newCar);
             console.log("data created: ", response.data);
             navigate("/cars");
         } catch(error) {

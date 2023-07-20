@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import APIService from "../../services/APIService";
 
 function CarDetails(car) {
 
@@ -17,7 +17,7 @@ function CarDetails(car) {
 
     const fetchCar = async() => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/cars/${id}`);
+            const response = await APIService.get(`/api/cars/${id}`);
             SetModel(response.data.model);
             SetMake(response.data.make);
             SetRegistration(response.data.registration);
@@ -38,7 +38,7 @@ function CarDetails(car) {
         }
 
         try {
-            const response = axios.put(`http://localhost:8080/api/cars/${id}/update`, updateCar);
+            const response = APIService.put(`/api/cars/${id}/update`, updateCar);
             console.log("data updated: ", response.data);
             navigate("/cars");
         } catch(error) {

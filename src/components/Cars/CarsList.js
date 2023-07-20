@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import APIService from "../../services/APIService";
 
 function CarsList() {
 
@@ -12,7 +12,7 @@ function CarsList() {
 
     const fetchCars = async() => {
         try {
-            const response = await axios.get("http://localhost:8080/api/cars");
+            const response = await APIService.get('/api/cars');
             SetCars(response.data);
         } catch (err) {
             console.log("Error fetching cars data: " + err);
@@ -21,7 +21,8 @@ function CarsList() {
 
     const deleteCar = async(id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/cars/${id}/delete`);
+            const response = await APIService.delete(`/api/cars/${id}/delete`);
+            console.log(response.data);
             fetchCars();
         } catch(err) {
             console.log("Error deleting car object: " + err);
