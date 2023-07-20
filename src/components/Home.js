@@ -60,7 +60,7 @@ function Home() {
                             <td>{item.price}</td>
                             <td>
                                 <Link to='`http://localhost:8080/api/posts/${item.id}`'>Edit</Link>&nbsp;
-                                <button onSubmit={handlerDelete}>Delete</button>
+                                <button type="submit">Delete</button>
                             </td>
                         </tr>
                     ))
