@@ -9,7 +9,7 @@ const CarForm = () => {
     const [price, setPrice] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handlerSubmit = (e) => {
         e.preventDefault();
 
         const newCar = {
@@ -20,7 +20,7 @@ const CarForm = () => {
         }
 
         try {
-            const response = APIService.post("/api/cars", newCar);
+            const response = APIService.post("/api/cars/create", newCar);
             console.log("data created: ", response.data);
             navigate("/cars");
         } catch(error) {
@@ -31,7 +31,7 @@ const CarForm = () => {
     return(
         <div className="form-box">
             <h2>Add Car</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handlerSubmit}>
                 <label>Model: 
                     <input type="text" onChange={e => setModel(e.target.value)} />
                 </label>
@@ -48,8 +48,8 @@ const CarForm = () => {
                     <input type="number" onChange={e => setPrice(e.target.value)} />
                 </label>
 
-                <button onClick={() => {navigate("/cars")}}>Cancel</button>&nbsp;
-                <button type="submit">Create</button>
+                <button onClick={() => { navigate("/cars")} }>Cancel</button>&nbsp;
+                <button type="submit">Submit</button>
             </form>
         </div>
     ) 

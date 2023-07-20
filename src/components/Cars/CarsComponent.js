@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CarsList from "./Cars/CarsList";
-import CarDetails from "./Cars/CarDetails";
-import CarForm from "./Cars/CarForm";
+import CarsList from "./CarsList";
+import CarDetails from "./CarDetails";
+import CarForm from "./CarForm";
 
 function CarsComponent() {
     return(

@@ -27,7 +27,7 @@ function CarDetails(car) {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handlerSubmit = (e) => {
         e.preventDefault();
 
         const updateCar = {
@@ -49,7 +49,7 @@ function CarDetails(car) {
 
     return(
         <div className="form-box">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handlerSubmit}>
                 <h2>Car Information: #{car.id}</h2>
 
                 <label>Model:

@@ -31,7 +31,11 @@ function CarsList() {
 
     return( 
         <div>
-            <h2>List of Cars</h2>
+            <h2>List of Cars &nbsp;
+                <Link to={'/cars/new'}>
+                    <button>Create</button>
+                </Link>
+            </h2>
             
             <table>
                 <thead>
@@ -54,7 +58,9 @@ function CarsList() {
                             <td>{car.registration}</td>
                             <td>{car.price}</td>
                             <td>
-                                <Link to={`/cars/${car.id}`}>Edit</Link>&nbsp;
+                                <Link to={`/cars/${car.id}`}>
+                                    <button>Edit</button>
+                                </Link>&nbsp;
                                 <button onClick={() => deleteCar(car.id)}>Delete</button>
                             </td>
                            </tr> 
@@ -62,8 +68,6 @@ function CarsList() {
                     }
                 </tbody>
             </table>
-
-            <Link to={'/cars/new'}>Create</Link>
         </div>
     );
 }
